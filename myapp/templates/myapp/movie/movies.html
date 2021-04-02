@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    Movies
+{% endblock %}
+{% block content %}
+    {% if latest_question_list %}
+        <ul>
+            {% for movie in latest_question_list %}
+                <li><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No movies are available.</p>
+    {% endif %}
+{% endblock %}
