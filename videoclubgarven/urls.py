@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from myapp import views
 
+admin.site.site_header = "Garven Admin"
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     path('movie/<int:movie_id>/', views.movie, name='movie'),
-    path('', views.index, name='index')
+    path('/movies', views.index, name='index')
 ]

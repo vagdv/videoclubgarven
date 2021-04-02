@@ -1,0 +1,24 @@
+{% load i18n %}
+
+{% if app_list %}
+        <div class="app-crud module">
+            <table>
+                <caption>
+                    CRUD
+                </caption>
+            {% for app in app_list %}
+                {% for model in app.models %}
+                    <tr class="model-
+                            {{ model.object_name|lower }}{% if model.admin_url in request.path %} current-model{% endif %}">
+                        <th scope="row">{{ model.name }}</th>
+                        <td><a href="{{ model.add_url }}" class="addlink">{% translate 'Add' %}</a></td>
+                        <td><a href="{{ model.admin_url }}" class="viewlink">{% translate 'View' %}</a></td>
+                        <td><a href="{{ model.admin_url }}" class="changelink">{% translate 'Change' %}</a></td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+            </table>
+        </div>
+{% else %}
+    <p>{% translate 'You don’t have permission to view or edit anything.' %}</p>
+{% endif %}
