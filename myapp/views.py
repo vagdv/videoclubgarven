@@ -19,3 +19,6 @@ def index(request):
         'latest_question_list': latest_question_list,
     }
     return render(request, 'myapp/movie/movies.html', context)
+
+def login(request):
+    return render(request, "myapp/login.html")
