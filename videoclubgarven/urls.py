@@ -19,9 +19,15 @@ from myapp import views
 
 admin.site.site_header = "Garven Admin"
 
+LOGIN_URL = '/myproject/login/'
+
+LOGOUT_REDIRECT_URL = '/myproject/login/'
+
 urlpatterns = [
     path('', admin.site.urls),
     path('movie/<int:movie_id>/', views.movie, name='movie'),
     path('movies', views.index, name='index'),
     path('loginn', views.login, name='loginhector')
 ]
+
+
