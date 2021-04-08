@@ -9,9 +9,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/*@media (max-width: 400px){
+	.login{
+		width: 90%;
+	}
+}*/
 
-@media (max-width: 400px) {
-    .login {
-        width: 90%;
-    }
-}

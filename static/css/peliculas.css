@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+/*.fila::after {
+    content: "";
+    clear: both;
+    display: table;
+
+}*/
+
+img {
+    /* Para que sea responsiva */
+
+    width: 10%;
+    display:block;
+    margin: auto;
+    /*height: 700%;*/
+}
