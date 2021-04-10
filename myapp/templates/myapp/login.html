@@ -1,39 +1,38 @@
-{% extends "base.html" %}
-
-{% block title %}
-    login
-
-{% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Garven {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/peliculas.css' %}" rel="stylesheet">
+</head>
 <body>
     <div class="">
         <div class="container bg-white">
-            <!--<div class="p-3 row bg-dark text-white ">
+            <div class="p-3 row bg-dark text-white ">
                 <nav class="col navbar navbar-dark ">
                     <div class="fas fa-utensils p-2"></div>
-                    <a class="col navbar-brand" href="loginn">VideoClub</a>
-                    <div class="nav text-white">
-                        <a class="nav-link active" href="movies"><i class="fas fa-bars text-secondary">Películas</a>
-                        <a class="nav-link active" href="./buscar.html"><i class="fas fa-bars text-secondary">Buscar Películas</i></a>
-                    </div>
+                    <a class="col navbar-brand" href="loginn">VideoClub GarVen</a>                    
                 </nav>
-            </div>-->
+            </div>
             <form action="" class="login">
-                <h3 class="text-center">Inicio de sesión</h3>
+                <h3 class="text-center">Login</h3>
                 <div class="form-group">
-                    <label for="Nombre">Nombre</label>
-                    <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Escribe Nombre">
+                    <label for="Nombre">Username</label>
+                    <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder=" Write your username">
                 </div>
                 <div class="form-group">
-                    <label for="Contra">Contraseña</label>
-                    <input type="password" class="form-control" name="Pass" id="Pass" placeholder="Escribe Contraseña">
+                    <label for="pass">Password</label>
+                    <input type="password" class="form-control" name="pass" id="pass" placeholder="Write your password">
                 </div>
                 <p class="text-center">
                     <button class="btn btn-primary btn-block">Login</button>
-                    <a class="nav-link active" href="{% url 'registro' %}"><i class="fas fa-envelope text-secondary"> Registrarse</i></a>
+                    <a class="nav-link active" href="{% url 'registro' %}"><i class="fas fa-envelope text-secondary"> Sign in</i></a>
                 </p>
             </form>
         </div>
     </div>
 </body>
-{% endblock %}
+<</html>

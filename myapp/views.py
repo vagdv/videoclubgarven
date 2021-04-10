@@ -23,6 +23,6 @@ def index(request):
 def login(request):
     return render(request, "myapp/login.html")
 
-def registro(request):
-    return render(request, "myapp/registro.html")
+def register(request):
+    return render(request, "myapp/register.html")
 
