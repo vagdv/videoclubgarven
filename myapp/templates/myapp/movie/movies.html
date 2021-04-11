@@ -13,18 +13,19 @@
         {% endfor %}
     </ul>
 </div>-->
+<div class="container bg-white">
+    <div class="mt-5">
+        <div class="text-center">
+            {% for movie in latest_question_list %}
+            <img class="img-fluid col-2 col-sm-3 col-md-4 col-lg-4" src="{{movie.url}}">
+            <p class="h3"><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></p>
+            {% endfor %}
+        </div>
 
-<div class="mt-5">
-    <div class="text-center">
-        {% for movie in latest_question_list %}
-        <img src="{{movie.url}}">
-        <p class="h3" ><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></p>
-        {% endfor %}
     </div>
-       
-</div>
+ </div>
 
-    {% else %}
+{% else %}
 <p>No movies are available.</p>
-    {% endif %}
+{% endif %}
 {% endblock %}
