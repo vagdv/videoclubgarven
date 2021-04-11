@@ -2,7 +2,7 @@
 {% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
-    <title>Garven</title>
+    <title>Garven admin</title>
     <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
     {% if not is_popup and is_nav_sidebar_enabled %}
         <link rel="stylesheet" type="text/css" href="{% static "admin/css/nav_sidebar.css" %}">
@@ -40,7 +40,8 @@
                 {% if has_permission %}
                     <div id="user-tools">
                         {% block userlinks %}
-                            <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a>
+                            <a href="{{ site_url }}">{% translate 'View site' %}</a> /
+                            <a href="{% url 'logout' %}">{% translate 'Log out' %}</a>
                         {% endblock %}
                     </div>
                 {% endif %}
