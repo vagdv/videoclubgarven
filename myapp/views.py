@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as auth_login, logout as auth_logout, authenticate
 from .models import Movie
+from django.core.paginator import Paginator
 
 
 @login_required(login_url='login')
@@ -16,11 +17,14 @@ def movie(request, movie_id):
 
 @login_required(login_url='login')
 def index(request):
-    latest_question_list = Movie.objects.all()
-    context = {
-        'latest_question_list': latest_question_list,
-    }
-    return render(request, 'myapp/movie/movies.html', context)
+    movies = Movie.objects.all().order_by('id')
+    paginator = Paginator(movies, 3)
+    page_number = 1
+    if request.GET:
+        page_number = request.GET['page']
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'myapp/movie/movies.html', {'movies': page_obj})
 
 
 def login(request):
