@@ -28,15 +28,23 @@
                     <b>With </b>
                     {{ movie.cast }}...
                 </p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch trailer
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content" style="width: auto;">
+                            <div class="modal-body">
+                                <iframe width="560" height="315"
+                                        src="{{ movie.urlTrailer }}"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            {#            <div class="mt-5">#}
-
-            {#            </div>#}
-            {#            <div class="" align="center">#}
-            {#                <iframe width="560" height="315"#}
-            {#                        src="{{ movie.urlTrailer }}"#}
-            {#                        frameborder="0" allowfullscreen></iframe>#}
-            {#            </div>#}
         </div>
     {% else %}
         <p>We do not have this movie.</p>
