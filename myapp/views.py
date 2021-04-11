@@ -18,10 +18,14 @@ def movie(request, movie_id):
 @login_required(login_url='login')
 def index(request):
     movies = Movie.objects.all().order_by('id')
-    paginator = Paginator(movies, 3)
     page_number = 1
-    if request.GET:
-        page_number = request.GET['page']
+    if request.method == 'GET':
+        if 'page' in request.GET:
+            page_number = request.GET['page']
+        elif 'name' in request.GET:
+            movies = Movie.objects.filter(name__contains=request.GET['name']).order_by('id')
+
+    paginator = Paginator(movies, 3)
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'myapp/movie/movies.html', {'movies': page_obj})

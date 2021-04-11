@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Garven {% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     {% load static %}
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
     <link href="{% static 'css/movies.css' %}" rel="stylesheet">
 </head>
 <body>
-    <div id="sidebar">
-        <div class="">
-            <div class="container bg-white">
-                <div class="p-3 row bg-dark text-white ">
-                    <nav class="col navbar navbar-dark ">
-                        <div class="fas fa-utensils p-2"></div>
-                        <a class="col navbar-brand" href="{% url 'index' %}">VideoClub GarVen</a>
-                        <div class="nav text-white">
-                            <a class="nav-link active" href="{% url 'index' %}"><i class="fas fa-bars text-secondary">Movies</i></a>
-                            <a class="nav-link active" href=""><i class="fas fa-bars text-secondary">Search Movie</i></a>
-                            <a class="nav-link active" href="{% url 'admin:index' %}"><i class="fas fa-bars text-secondary">Hi, {{ request.user }}</i></a>
-                            <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-bars text-secondary">Logout</i></a>
+<div id="sidebar">
+    <div class="">
+        <div class="container bg-white">
+            <div class="p-3 row bg-dark text-white ">
+                <nav class="col navbar navbar-dark ">
+                    <div class="fas fa-utensils p-2"></div>
+                    <a class="col navbar-brand" href="{% url 'index' %}">VideoClub GarVen</a>
+                    <div class="nav text-white">
+                        <div class="input-group">
+                            <form method="GET" action="{% url 'index' %}">
+                                <div class="form-outline">
+                                    <input type="search"  id="name" name="name"
+                                           class="form-control"/>
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="Search movie...">
+                            </form>
                         </div>
-                    </nav>
-                </div>
+                        {% if request.user.is_superuser %}
+                            <a class="nav-link active" href="{% url 'admin:index' %}"><i
+                                    class="fas fa-bars text-secondary">Admin</i></a>
+                        {% else %}
+                            <a class="nav-link active" href=""><i
+                                    class="fas fa-bars text-secondary">Hi, {{ request.user }}</i></a>
+                        {% endif %}
+                        <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-bars text-secondary">Logout</i></a>
+                    </div>
+                </nav>
             </div>
         </div>
-        <!--<ul>
-        <li><a href="/">Home</a></li>
-        {#
-        <li><a href="/movies/">Movies</a></li>#}
-    </ul>-->
     </div>
+</div>
 {% block content %} {% endblock %}
 </body>
 </html>
