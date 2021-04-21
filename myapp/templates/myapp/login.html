@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Garven {% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     {% load static %}
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <link href="{% static 'css/movies.css' %}" rel="stylesheet">
 </head>
-<body>
-    <div class="">
-        <div class="container bg-white">
-            <div class="p-3 row bg-dark text-white ">
-                <nav class="col navbar navbar-dark ">
-                    <div class="fas fa-utensils p-2"></div>
-                    <a class="col navbar-brand" href="">VideoClub GarVen</a>
-                </nav>
-            </div>
-            <form method="POST" action="{% url 'login' %}" class="login">
+<body class="login" >
+
+        <div class="log">
+            <!--<div class="p-3 row bg-dark text-white ">
+            <nav class="col navbar navbar-dark ">
+                <div class="fas fa-utensils p-2"></div>
+                <a class="col navbar-brand" href="">VideoClub GarVen</a>
+            </nav>
+        </div>-->
+
+            <img src="/static/img/logo.png" class="avatar" alt="Avatar Image">
+
+            <form method="POST" action="{% url 'login' %}" class="">
                 {% csrf_token %}
-                <h3 class="text-center">Login</h3>
-                <div class="form-group">
-                    <label for="Nombre">Username</label>
-                    <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder=" Write your username">
-                </div>
-                <div class="form-group">
-                    <label for="pass">Password</label>
-                    <input type="password" class="form-control" name="pass" id="pass" placeholder="Write your password">
-                </div>
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder=" Write your username">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="pass" id="pass" placeholder="Write your password">
+
                 {% if error %}
-                    <p>
+                <p>
                     {{ error }}
-                    </p>
-                {% endif %}
-                <p class="text-center">
-                    <button class="btn btn-primary btn-block">Login</button>
                 </p>
+                {% endif %}
+                <input type="submit" value="Login">
             </form>
+
         </div>
-    </div>
+
 </body>
 </html>
