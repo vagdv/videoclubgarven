@@ -1,0 +1,11 @@
+.cabecera .titulo {
+    font-weight: bold;
+}
+.cabecera .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.cabecera .nav-link{
+    font-weight: bold;
+}

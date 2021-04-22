@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+.columna{
+    float: left;
+    width: 33%;
+    padding-right: 5px;
+
+}
+
+.fila::after {
+    content: "";
+    clear: both;
+    display: table;
+
+}
+
+img {
+
+    width: 300px;
+    height: 420px;
+
+}
+.peliculas{
+    width: 1000px;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
