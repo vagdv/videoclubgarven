@@ -8,6 +8,7 @@
     {% load static %}
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
     <link href="{% static 'css/peliculas.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cabecera.css' %}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
@@ -15,39 +16,41 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
             integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
             crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6a0565a4f0.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-<div id="sidebar">
-    <div class="">
-        <div class="container bg-white">
-            <div class="p-3 row bg-dark text-white ">
+<div class="cabecera" id="sidebar">    
+        <div class="container-fluid bg-white">
+            <div class="p-6 row bg-dark text-white ">
                 <nav class="col navbar navbar-dark ">
-                    <div class="fas fa-utensils p-2"></div>
-                    <a class="col navbar-brand" href="{% url 'index' %}">VideoClub GarVen</a>
+                    <!--<div class="fas fa-utensils p-2"></div>-->
+                    <a class="col-1" href="{% url 'index' %}"><img src="/static/img/logo.png" class="avatar" alt="Avatar Image"></a>
                     <div class="nav text-white">
                         <div class="input-group">
                             <form method="GET" action="{% url 'index' %}">
                                 <div class="form-outline">
-                                    <input type="search" id="name" name="name"
-                                           class="form-control"/>
+                                    <input type="search" id="name" name="name" class="form-control" />
+                                    <input type="submit" class="btn btn-primary" value="Search movie...">
                                 </div>
-                                <input type="submit" class="btn btn-primary" value="Search movie...">
+                                <div id="cover-ctn-search"></div>
                             </form>
+
+                            {% if request.user.is_superuser %}
+                            <a class="nav-link active" href="{% url 'admin:index' %}">
+                                <i class="fas fa-bars text-secondary">Admin</i>                            
+                            </a>
+                            {% else %}
+                            <a class="nav-link active" href="">
+                                <i class="fas fa-bars text-secondary">Hi, {{ request.user }}</i>
+                            </a>
+                            {% endif %}
+                            <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-bars text-secondary">Logout</i></a>
                         </div>
-                        {% if request.user.is_superuser %}
-                            <a class="nav-link active" href="{% url 'admin:index' %}"><i
-                                    class="fas fa-bars text-secondary">Admin</i></a>
-                        {% else %}
-                            <a class="nav-link active" href=""><i
-                                    class="fas fa-bars text-secondary">Hi, {{ request.user }}</i></a>
-                        {% endif %}
-                        <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-bars text-secondary">Logout</i></a>
                     </div>
                 </nav>
             </div>
         </div>
-    </div>
 </div>
 {% block content %} {% endblock %}
 </body>
