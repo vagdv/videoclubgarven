@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Movies
+
+{% endblock %}
+{% block content %}
+    {% if movies %}
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">email</th>
+            <th scope="col">Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+                <tr>
+                    <th scope="row">{{ movie.name }}</th>
+                    <td>{{ movie.urlTrailer }}</td>
+                    <td>{{ movie.desc }}</td>
+                    <td>{{ movie.year }}</td>
+                    <td>{{ movie.director }}</td>
+                    <td>{{ movie.cast }}</td>
+                    <td>{{ movie.url }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+            <!-- <div class="pagination">
+                            <span class="step-links">
+                                {% if movies.has_previous %}
+                                    <a href="?page=1">&laquo; first</a>
+                                    <a href="?page={{ movies.previous_page_number }}">previous</a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
+                                </span>
+
+                                {% if movies.has_next %}
+                                    <a href="?page={{ movies.next_page_number }}">next</a>
+                                    <a href="?page={{ movies.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
+            </div> -->
+    {% else %}
+        <p>No users are available.</p>
+    {% endif %}
+{% endblock %}

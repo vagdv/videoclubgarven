@@ -38,7 +38,7 @@
                             </form>
 
                             {% if request.user.is_staff %}
-                            <a class="nav-link active" href="{% url 'admin:index' %}">
+                            <a class="nav-link active" href="{% url 'users' %}">
                                 <i class="fas fa-bars text-secondary">Admin</i>                            
                             </a>
                             {% else %}
