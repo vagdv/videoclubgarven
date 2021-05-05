@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp import views
+from myapp import views, users, movies
 
 admin.site.site_header = "Garven Admin"
 
@@ -24,8 +24,10 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('', views.index, name='index'),
     path('movie/<int:movie_id>/', views.movie, name='movie'),
+    path('admin/users/', users.index, name='users'),
+    path('admin/movies/', movies.index, name='movies'),
 
-    path('admin', admin.site.urls, name='admin')
+    path('adminDjango', admin.site.urls, name='admin')
 ]
 
 

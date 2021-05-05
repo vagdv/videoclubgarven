@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Garven {% endblock %}</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    {% load static %}
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
     <link href="{% static 'css/movies.css' %}" rel="stylesheet">
     <link href="{% static 'css/cabecera.css' %}" rel="stylesheet">
@@ -27,7 +28,7 @@
             <div class="p-6 row bg-dark text-white ">
                 <nav class="col navbar navbar-dark ">
                     <!--<div class="fas fa-utensils p-2"></div>-->
-                    <a class="col-1" href="{% url 'index' %}"><img src="/static/img/logo.png" class="avatar" alt="Avatar Image"></a>
+                    <a class="col-1" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" class="avatar" alt="Avatar Image"></a>
                     <div class="nav text-white">
                         <div class="input-group rounded">
                            <!-- <form method="GET" action="{% url 'index' %}">
@@ -52,18 +53,28 @@
                                 </div>
                             </form>
 
+<<<<<<< HEAD
 
 
                             {% if request.user.is_superuser %}
                             <a class="nav-link active" href="{% url 'admin:index' %}">
                                 <i class="text-secondary">Admin</i>
+=======
+                            {% if request.user.is_staff %}
+                            <a class="nav-link active" href="{% url 'users' %}">
+                                <i class="fas fa-bars text-secondary">Admin</i>                            
+>>>>>>> b31fcc0c2efefad7668c1e43efdaa635af14ef83
                             </a>
                             {% else %}
-                            <a class="nav-link active" href="">
-                                <i class="fas fa-bars text-secondary">Hi, {{ request.user }}</i>
+                            <a class="nav-link active">
+                                <i class="fas text-secondary">Hi, {{ request.user }}</i>
                             </a>
                             {% endif %}
+<<<<<<< HEAD
                             <a class="nav-link active" href="{% url 'logout' %}"><i class="text-secondary">Logout</i></a>
+=======
+                            <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt ">Logout</i></a>
+>>>>>>> b31fcc0c2efefad7668c1e43efdaa635af14ef83
                         </div>
                     </div>
                 </nav>
