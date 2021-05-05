@@ -1,6 +1,4 @@
-.cabecera .titulo {
-    font-weight: bold;
-}
+
 .cabecera .avatar {
     width: 100px;
     height: 100px;
@@ -8,4 +6,26 @@
 }
 .cabecera .nav-link{
     font-weight: bold;
+}
+body{
+ margin: 0;
+ padding: 0;
+ background: #151313;
+}
+.cabecera .fas fa-search{
+    background: #ffd800;
+    border: none;
+
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

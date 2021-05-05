@@ -7,8 +7,9 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     {% load static %}
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <link href="{% static 'css/peliculas.css' %}" rel="stylesheet">
+    <link href="{% static 'css/movies.css' %}" rel="stylesheet">
     <link href="{% static 'css/cabecera.css' %}" rel="stylesheet">
+    <link href="{% static 'css/movie.css' %}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
@@ -18,40 +19,57 @@
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6a0565a4f0.js" crossorigin="anonymous"></script>
 
+
 </head>
 <body>
-<div class="cabecera" id="sidebar">    
+    <div class="cabecera" id="sidebar">
         <div class="container-fluid bg-white">
             <div class="p-6 row bg-dark text-white ">
                 <nav class="col navbar navbar-dark ">
                     <!--<div class="fas fa-utensils p-2"></div>-->
                     <a class="col-1" href="{% url 'index' %}"><img src="/static/img/logo.png" class="avatar" alt="Avatar Image"></a>
                     <div class="nav text-white">
-                        <div class="input-group">
-                            <form method="GET" action="{% url 'index' %}">
+                        <div class="input-group rounded">
+                           <!-- <form method="GET" action="{% url 'index' %}">
+
                                 <div class="form-outline">
                                     <input type="search" id="name" name="name" class="form-control" />
-                                    <input type="submit" class="btn btn-primary" value="Search movie...">
+                                    
+                                        <button type="submit" class="fas fa-search"></button>
+                                 
                                 </div>
                                 <div id="cover-ctn-search"></div>
+                            </form>-->
+
+
+                            <form method="GET" action="{% url 'index' %}">
+                                <div class="input-group rounded">
+                                    <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search" aria-label="Search"
+                                           aria-describedby="search-addon" />
+                                    <span class="input-group-text" id="search-addon">
+                                        <button class="fas fa-search border-0"></button>
+                                    </span>
+                                </div>
                             </form>
+
+
 
                             {% if request.user.is_superuser %}
                             <a class="nav-link active" href="{% url 'admin:index' %}">
-                                <i class="fas fa-bars text-secondary">Admin</i>                            
+                                <i class="text-secondary">Admin</i>
                             </a>
                             {% else %}
                             <a class="nav-link active" href="">
                                 <i class="fas fa-bars text-secondary">Hi, {{ request.user }}</i>
                             </a>
                             {% endif %}
-                            <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-bars text-secondary">Logout</i></a>
+                            <a class="nav-link active" href="{% url 'logout' %}"><i class="text-secondary">Logout</i></a>
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-</div>
-{% block content %} {% endblock %}
+    </div>
+    {% block content %} {% endblock %}
 </body>
 </html>
