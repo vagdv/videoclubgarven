@@ -4,51 +4,51 @@
 {% endblock %}
 {% block content %}
     {% if movie %}
-        <body>
-        <div class="container bg-white">
-        <div class="row">
-            <div class="col-4 mt-5">
-                <img src="{{ movie.url }}"> <!--style="width: 200px;"-->
-            </div>
-            <div class="col mt-5">
-                <h1>
-                    {{ movie.name }}
-                </h1>
-                <p>
-                    {{ movie.year }}
-                </p>
-                <p class="text-justify">
-                    {{ movie.desc }}
-                </p>
-                <p>
-                    <b>Directed by </b>
-                    {{ movie.director }}
-                </p>
-                <p>
-                    <b>With </b>
-                    {{ movie.cast }}...
-                </p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch trailer
-                </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content" style="width: auto;">
-                            <div class="modal-body">
-                                <iframe width="560" height="315"
-                                        src="{{ movie.urlTrailer }}"
-                                        frameborder="0" allowfullscreen></iframe>
+<body>
+    <div class="container bg-white">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <img src="{{ movie.url }}"> <!--style="width: 200px;"-->
+                </div>
+                <div class="col mt-5">
+                    <h1>
+                        {{ movie.name }}
+                    </h1>
+                    <p>
+                        {{ movie.year }}
+                    </p>
+                    <p class="text-justify">
+                        {{ movie.desc }}
+                    </p>
+                    <p>
+                        <b>Directed by </b>
+                        {{ movie.director }}
+                    </p>
+                    <p>
+                        <b>With </b>
+                        {{ movie.cast }}...
+                    </p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Launch trailer
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content" style="width: auto;">
+                                <div class="modal-body">
+                                    <iframe width="560" height="315"
+                                            src="{{ movie.urlTrailer }}"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {% else %}
-        <p>We do not have this movie.</p>
-    {% endif %}
-{% endblock %}
-</div>
+        {% else %}
+            <p>We do not have this movie.</p>
+        {% endif %}
+    {% endblock %}
+    </div>
 </body>
