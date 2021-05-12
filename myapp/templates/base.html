@@ -18,12 +18,31 @@
 <body>
     <div class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="col-xs-12 col-sm col-md">
+            <div class="col-12 col-sm col-md">
                 <a class="" href="{% url 'index' %}">
                     <img src="/static/img/logo.png" class="avatar" alt="Avatar Image">
                 </a>
             </div>
-            <div class="search col-xs-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <!--<<div class="search col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+        <form method="GET" action="{% url 'index' %}">
+            <div class="search-box">
+                <input type="text" placeholder="Search" class="input" id="name" name="name">
+                <div class="btn">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".btn").click(function () {
+            $(".input").toggleClass("active").focus;
+            $(this).toggleClass("animate");
+            $(".input").val("");
+        });
+    </script>-->
+            <div class="search col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
                 <form method="GET" action="{% url 'index' %}">
                     <div class="input-group rounded">
                         <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search" aria-label="Search"
@@ -34,30 +53,27 @@
                     </div>
                 </form>
             </div>
-
             {% if request.user.is_superuser %}
-            <div class="user col-xs-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <div class="user col-12 col-sm-2 col-md-1 col-lg-1 col-xl-1">
                 <a class="nav-link active" href="{% url 'admin:index' %}">
                     <i class="text-secondary">Admin</i>
                 </a>
             </div>
 
             {% else %}
-            <div class="user col-xs-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <div class="user col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                 <a class="nav-link active" href="">
                     <i class="text-secondary">Hi, {{ request.user }}</i>
                 </a>
             </div>
             {% endif %}
-            <div class="logout col-xs-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
+            <div class="logout col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
                 <a class="nav-link active" href="{% url 'logout' %}">
                     <i class="text-secondary">Logout</i>
                 </a>
             </div>
         </nav>
     </div>
-
-
     {% block content %} {% endblock %}
 </body>
 </html>

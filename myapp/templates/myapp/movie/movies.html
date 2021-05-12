@@ -11,9 +11,9 @@
 
     <div class="row">
         {% for movie in movies %}
-        <div class="col-xs-2 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+        <div class="col-7 col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <a href="{% url 'movie' movie.id %}"><img src="{{ movie.url }}" class="img-fluid" alt="Responsive image"></a>
-            <p class="h3"><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></p>
+            <p class="h3" align="center"><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></p>
         </div>
         {% endfor %}
     </div>
@@ -27,7 +27,6 @@
             </div>
         {% endfor %}
     </div>-->
-
 <div class="pagination">
     <span class="step-links">
         {% if movies.has_previous %}
@@ -45,7 +44,6 @@
         {% endif %}
     </span>
 </div>
-
     {% else %}
 <p>No movies are available.</p>
     {% endif %}

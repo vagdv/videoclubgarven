@@ -1,3 +1,6 @@
+body {
+    background-color: #151313;
+}
 
 .avatar {
     width: 100px;
@@ -5,9 +8,31 @@
     border-radius: 50%;
     margin: 0.5%;
 }
-body {
-    background: #151313;
+
+.container-fluid .search {
+    margin-top: 30px;
 }
+.container-fluid .user {
+    margin-top: 30px;
+}
+
+.container-fluid .logout {
+    margin-top: 30px;
+}
+@media only screen and (max-width: 576px){
+    .container-fluid .col-12 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container-fluid .search {      
+        margin: 0 auto;
+        margin-top: 8%;
+        display: flex;
+        flex-direction: column;
+    }    
+}
+
 
 
 /*.container-fluid .search{
@@ -34,6 +59,55 @@ body {
     margin: 4px 2px;
     cursor: pointer;
 }*/
+
+
+
+/*.search-box {
+    width: 750px;
+    height: 100px;
+
+}
+
+.input {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    box-sizing: border-box;
+    width: 0px;
+    height: 50px;
+    padding: 0 20px;
+    outline: none;
+   
+    border-radius: 50px;
+    border: 3px solid #212529;
+    transition: all 0.8s ease;
+}
+
+.btn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #212529;
+    border-radius: 50%;
+    right: 45px;
+    top: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 80px;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.8s ease;
+}
+
+.input.active {
+    width: 350px;
+    right: 100px;
+}
+
+.btn.animate {
+    transform: rotate(-360deg);
+    right: 100px;
+}
 
 
 

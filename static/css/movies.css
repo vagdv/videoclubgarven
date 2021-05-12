@@ -1,9 +1,12 @@
 
-
-
-.row{
-    margin-top:20%;
+.row {
+    margin-top: 15%;
+    justify-content: center;
 }
+.pagination {
+    justify-content: center;
+}
+
 /*img {
     width: 300px;
     height: 420px;
