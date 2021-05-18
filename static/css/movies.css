@@ -30,7 +30,9 @@ a:link {
     color: #e2dada;
 }
 
-
+.crud-users .table {
+    color: #e2dada;
+}
 .form-control{
     margin-top:10px;
 }
