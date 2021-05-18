@@ -19,7 +19,17 @@ body {
 .container-fluid .logout {
     margin-top: 30px;
 }
-@media only screen and (max-width: 576px){
+
+.container-fluid .dropdown {
+    margin-top: 30px;    
+}
+
+.container-fluid .dropdown .form-control {
+    margin: 10px;
+    width:200px;
+}
+
+@media only screen and (max-width: 576px) {
     .container-fluid .col-12 {
         display: flex;
         align-items: center;
@@ -30,7 +40,11 @@ body {
         margin-top: 8%;
         display: flex;
         flex-direction: column;
-    }    
+    }
+    .container-fluid .dropdown .dropdown-menu {      
+        margin-left: 25%;
+    }
+  
 }
 
 

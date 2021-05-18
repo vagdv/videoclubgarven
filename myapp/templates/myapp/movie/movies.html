@@ -13,7 +13,7 @@
         {% for movie in movies %}
         <div class="col-7 col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <a href="{% url 'movie' movie.id %}"><img src="{{ movie.url }}" class="img-fluid" alt="Responsive image"></a>
-            <p class="h3" align="center"><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></p>
+            <p class="h3" align="center"><a class="nombre" href="{% url 'movie' movie.id %}">{{ movie.name }}</a></p>
         </div>
         {% endfor %}
     </div>
@@ -27,23 +27,35 @@
             </div>
         {% endfor %}
     </div>-->
-<div class="pagination">
-    <span class="step-links">
-        {% if movies.has_previous %}
-        <a href="?page=1">&laquo; first</a>
-        <a href="?page={{ movies.previous_page_number }}">previous</a>
-        {% endif %}
 
-        <span class="current">
+<nav aria-label="pagination">
+    <ul class="pagination">
+        <li class="page-item">
+            {% if movies.has_previous %}
+            <a href="?page=1" class="first page-link" aria-label="First">&larr;</a>
+            {% endif %}
+        </li>
+        <li class="page-item">
+            {% if movies.has_previous %}
+            <a href="?page={{ movies.previous_page_number }}" class="previous page-link" aria-label="Previous">&laquo;</a>
+            {% endif %}
+        </li>
+        <li class="current page-link" aria-label="Current">
             Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
-        </span>
-
-        {% if movies.has_next %}
-        <a href="?page={{ movies.next_page_number }}">next</a>
-        <a href="?page={{ movies.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+        </li>
+        <li class="page-item">
+            {% if movies.has_next %}
+            <a href="?page={{ movies.next_page_number }}" class="next page-link" aria-label="Next">&raquo;</a>
+            {% endif %}
+        </li>
+        
+        <li class="page-item">
+            {% if movies.has_next %}
+            <a href="?page={{ movies.paginator.num_pages }}" class="last page-link" aria-label="Last">&rarr;</a>
+            {% endif %}
+        </li>        
+</ul>
+</nav>
     {% else %}
 <p>No movies are available.</p>
     {% endif %}

@@ -3,41 +3,29 @@
     margin-top: 15%;
     justify-content: center;
 }
+
+.nombre{ 
+    color: #e2dada; 
+}
+a:link {
+    color: #e2dada;
+    text-decoration: none;
+}
+
 .pagination {
     justify-content: center;
+    text-decoration: none;
 }
 
-/*img {
-    width: 300px;
-    height: 420px;
-}*/
-/*.columna{
-    float: left;
-    width: 33%;
-    padding-right: 5px;
-
+.page-item {
+    color: #ffffff;
+    background: none;
 }
-.fila::after {
-    content: "";
-    clear: both;
-    display: table;
-
-}
-
-
-.peliculas {
-    width: 1000px;
+.page-link {
+    color: #ffffff;
+    background: none;
     border: none;
-    border-radius: 4px;
-    padding: 15px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
-.current{
-    color: #686363
 
-}*/
 
 
