@@ -48,4 +48,42 @@
     {% else %}
         <p>No users are available.</p>
     {% endif %}
-{% endblock %}
+        <div class="container-fluid modal-crud">
+            <div class="row">
+                <div class="col-12 col-sm-2 col-lg-1">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
+                        Add user
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-secondary" id="ModalLabel">Add movie</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" class="form-control" name="Username" id="Username" placeholder="Write username">
+                                    <input type="text" class="form-control" name="First" id="First" placeholder="Write first">
+                                    <input type="text" class="form-control" name="Last" id="Last" placeholder="Write last">
+                                    <input type="text" class="form-control" name="Email" id="Email" placeholder="Write email">
+                                    <input type="text" class="form-control" name="Admin" id="Admin" placeholder="Write admin">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-2 col-lg-1">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal-delete">
+                        Delete user
+                    </button>
+                </div>
+            </div>
+        </div>
+            {% endblock %}

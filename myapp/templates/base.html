@@ -50,9 +50,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                     <li>
-                        <form method="GET" action="{% url 'index' %}">                            
-                                <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search" aria-label="Search"
-                                       aria-describedby="search-addon" />
+                        <form method="GET" action="{% url 'index' %}">
+                            <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search" aria-label="Search"
+                                   aria-describedby="search-addon" />
                         </form>
                     </li>
                 </ul>
@@ -60,36 +60,54 @@
 
 
             <!--  <div class="search col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                    <form method="GET" action="{% url 'index' %}">
-                        <div class="input-group rounded">
-                            <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search" aria-label="Search"
-                                   aria-describedby="search-addon" />
-                            <span class="input-group-text" id="search-addon">
-                                <button class="fas fa-search border-0"></button>
-                            </span>
-                        </div>
-                    </form>
-                </div>-->
-                {% if request.user.is_superuser %}
-                <div class="user col-12 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-                    <a class="nav-link active" href="{% url 'admin:index' %}">
-                        <i class="text-secondary">Admin</i>
-                    </a>
-                </div>
+        <form method="GET" action="{% url 'index' %}">
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search" aria-label="Search"
+                       aria-describedby="search-addon" />
+                <span class="input-group-text" id="search-addon">
+                    <button class="fas fa-search border-0"></button>
+                </span>
+            </div>
+        </form>
+    </div>-->
+            {% if request.user.is_superuser %}
+            <!--<div class="user col-12 col-sm-2 col-md-1 col-lg-1 col-xl-1">
+                <a class="nav-link active" href="{% url 'admin:index' %}">
+                    <i class="text-secondary">Admin</i>
+                </a>
+            </div>-->
 
-                {% else %}
-                <div class="user col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                    <a class="nav-link active" href="">
-                        <i class="text-secondary">Hi, {{ request.user }}</i>
-                    </a>
-                </div>
-                {% endif %}
-                <div class="logout col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
-                    <a class="nav-link active" href="{% url 'logout' %}">
-                        <i class="text-secondary">Logout</i>
-                    </a>
-                </div>
-            </nav>
+            <div class="dropdown col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
+                <a class="nav-link" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="text-secondary">Admin</i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li>
+                        <a class="nav-link active" href="{% url 'movies' %}">
+                            <i class="text-secondary">Manage movies</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="{% url 'users' %}">
+                            <i class="text-secondary">Manage users</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {% else %}
+            <div class="user col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <a class="nav-link active" href="">
+                    <i class="text-secondary">Hi, {{ request.user }}</i>
+                </a>
+            </div>
+            {% endif %}
+            <div class="logout col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
+                <a class="nav-link active" href="{% url 'logout' %}">
+                    <i class="text-secondary">Logout</i>
+                </a>
+            </div>
+        </nav>
         </div>
         {% block content %} {% endblock %}
 
