@@ -9,7 +9,7 @@
 <div class="crud-movies">
     <table class="table table-responsive">
         <thead>
-            <tr>
+            <tr>                
                 <th scope="col">Movie</th>
                 <th scope="col">Trailer</th>
                 <th scope="col">Description</th>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             {% for movie in movies %}
-            <tr>
+            <tr>                
                 <th scope="row">{{ movie.name }}</th>
                 <td>{{ movie.urlTrailer }}</td>
                 <td>{{ movie.desc }}</td>
@@ -60,7 +60,7 @@
     <div class="row">
         <div class="col-12 col-sm-2 col-lg-1">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-                Add movie
+                Add
             </button>
 
             <!-- Modal -->
@@ -88,11 +88,46 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12 col-sm-2 col-lg-1">
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal-delete">
-               Delete movie
+                Delete
             </button>
+            <div class="modal fade" id="Modal-delete" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-secondary" id="ModalLabel">Delete Movie</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Movie</th>         
+                                        <th scope="col">Director</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for movie in movies %}
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">{{ movie.name }}</th>                             
+                                        <td>{{ movie.director }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger">Delete Movies</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
 </div>
 

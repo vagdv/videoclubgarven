@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-12 col-sm-2 col-lg-1">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-                        Add user
+                        Add
                     </button>
 
                     <!-- Modal -->
@@ -83,8 +83,44 @@
                 </div>
                 <div class="col-12 col-sm-2 col-lg-1">
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal-delete">
-                        Delete user
+                        Delete
                     </button>
+
+                    <div class="modal fade" id="Modal-delete" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-secondary" id="ModalLabel">Add movie</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Username</th>
+                                                <th scope="col">Admin</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for user in users %}
+                                            <tr>
+                                                <th><input type="checkbox"></th>
+                                                <th scope="row">{{ user.username }}</th>
+                                                <td>{{ user.is_staff }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Delete Users</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
