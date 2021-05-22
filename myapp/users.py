@@ -1,9 +1,6 @@
-from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from .forms import RegisterUserForm
-from django.core.paginator import Paginator
 from django.contrib.admin.views.decorators import staff_member_required
 
 
@@ -20,7 +17,7 @@ def index(request):
 
 
 @staff_member_required(login_url='login')
-def deleteUser(user_id):
+def deleteUser(request, user_id):
     User = get_user_model()
     userToDelete = User.objects.get(pk=user_id)
     userToDelete.delete()

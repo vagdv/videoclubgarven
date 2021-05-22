@@ -1,25 +1,22 @@
-from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
-from django.core.paginator import Paginator
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import Movie
+from .forms import MovieForm
 
 
-# @login_required(login_url='login')
-# def movie(request, movie_id):
-#     try:
-#         movie = Movie.objects.get(pk=movie_id)
-#     except Movie.DoesNotExist:
-#         raise Http404("Movie does not exist")
-#     return render(request, 'myapp/movie/movie.html', {'movie': movie})
-
-
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def index(request):
-    movies = Movie.objects.all()
-
-    #paginator = Paginator(users, 3)
-    #page_obj = paginator.get_page(page_number)
+    if request.method == 'POST':
+        form = MovieForm(request.POST)
+        if form.is_valid():
+            form.save()
+    movies = Movie.objects.all().order_by('-id')
 
     return render(request, 'myapp/crud/movies.html', {'movies': movies})
+
+
+@staff_member_required(login_url='login')
+def deleteMovie(request, movie_id):
+    movieToDelete = Movie.objects.get(pk=movie_id)
+    movieToDelete.delete()
+    return redirect('/admin/movies')
