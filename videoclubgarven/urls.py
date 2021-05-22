@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('movie/<int:movie_id>/', views.movie, name='movie'),
     path('admin/users/', users.index, name='users'),
+    path('admin/users/<int:user_id>/', users.deleteUser, name='deleteUser'),
     path('admin/movies/', movies.index, name='movies'),
 
     path('adminDjango', admin.site.urls, name='admin')

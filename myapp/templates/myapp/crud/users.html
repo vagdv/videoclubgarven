@@ -21,7 +21,7 @@
                     <tr>
                         <th scope="row">{{ user.username }}</th>
                         <td>{{ user.email }}</td>
-                        <td><button type="button" class="btn btn-danger">Delete user </button></td>
+                        <td><a href="{% url 'deleteUser' user.id %}" class="btn btn-danger" role="button">Delete user</a></td>
                     </tr>
                 {% endif %}
 
