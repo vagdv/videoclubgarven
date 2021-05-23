@@ -6,9 +6,9 @@
 {% endblock %}
 {% block content %}
     {% if movies %}
-        <div class="crud-movies">
-        <table class="table table-responsive">
-            <thead>
+<div class="crud-movies">
+    <table class="table table-responsive">
+        <thead>
             <tr>
                 <th scope="col">Movie</th>
                 <th scope="col">Trailer</th>
@@ -17,116 +17,165 @@
                 <th scope="col">Director</th>
                 <th scope="col">Actors</th>
                 <th scope="col">Image</th>
+                <th scope="col">Options</th>
                 <th scope="col"></th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
             {% for movie in movies %}
-                <tr>
-                    <th scope="row"><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></th>
-                    <td><a href="{{ movie.urlTrailer }}">{{ movie.urlTrailer }}</a></td>
-                    <td>{{ movie.desc }}</td>
-                    <td>{{ movie.year }}</td>
-                    <td>{{ movie.director }}</td>
-                    <td>{{ movie.cast }}</td>
-                    <td><a href="{{ movie.url }}">{{ movie.url }}</a></td>
-                    <td><a href="{% url 'deleteMovie' movie.id %}" class="btn btn-danger" role="button">Delete movie {{ movie.id }}</a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No movies are available.</p>
-    {% endif %}
+            <tr>
+                <th scope="row"><a href="{% url 'movie' movie.id %}">{{ movie.name }}</a></th>
+                <td><a href="{{ movie.urlTrailer }}">{{ movie.urlTrailer }}</a></td>
+                <td>{{ movie.desc }}</td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.director }}</td>
+                <td>{{ movie.cast }}</td>
+                <td><a href="{{ movie.url }}">{{ movie.url }}</a></td>
+                <td><a href="{% url 'deleteMovie' movie.id %}" class="btn btn-danger" role="button">Delete</a></td>
+                <td>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalUpdate">
+                        Update
+                    </button>
 
+                </td>
+            </tr>
+
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <!-- Modal -->
+    {% else %}
+    <p>No movies are available.</p>
+    {% endif %}
+    <div class="modal fade" id="ModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-secondary" id="ModalLabel">Update movie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <form method="POST" action="{% url 'movies' %}" class="">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <input type="text" class="form-control" required name="name" id="name" value=""
+                               placeholder="Movie name">
+                        <input type="url" class="form-control" required name="urlTrailer" id="urlTrailer"
+                               placeholder="YouTube embedded trailer">
+                        <input type="text" class="form-control" required name="desc" id="desc"
+                               placeholder="Description">
+                        <input type="date" class="form-control" required name="year" id="year"
+                               placeholder="Release date">
+                        <input type="text" class="form-control" required name="director" id="director" value=""
+                               placeholder="Director">
+                        <input type="text" class="form-control" required name="cast" id="cast"
+                               placeholder="Cast">
+                        <input type="url" class="form-control" required name="url" id="url"
+                               placeholder="Image url">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </div>
-    <div class="container-fluid modal-crud">
-        <div class="row">
-            <div class="col-12 col-sm-2 col-lg-1">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-                    Add
-                </button>
+<div class="container-fluid modal-crud">
+    <div class="row">
+        <div class="col-12 col-sm-2 col-lg-1">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
+                Add
+            </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-secondary" id="ModalLabel">Add new movie</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <form method="POST" action="{% url 'movies' %}" class="">
-                                {% csrf_token %}
-                                <div class="modal-body">
-                                    <input type="text" class="form-control" required name="name" id="name"
-                                           placeholder="Movie name">
-                                    <input type="url" class="form-control" required name="urlTrailer" id="urlTrailer"
-                                           placeholder="YouTube embedded trailer">
-                                    <input type="text" class="form-control" required name="desc" id="desc"
-                                           placeholder="Description">
-                                    <input type="date" class="form-control" required name="year" id="year"
-                                           placeholder="Release date">
-                                    <input type="text" class="form-control" required name="director" id="director"
-                                           placeholder="Director">
-                                    <input type="text" class="form-control" required name="cast" id="cast"
-                                           placeholder="Cast">
-                                    <input type="url" class="form-control" required name="url" id="url"
-                                           placeholder="Image url">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </form>
+            <!-- Modal -->
+            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-secondary" id="ModalLabel">Add new movie</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-2 col-lg-1">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal-delete">
-                    Delete
-                </button>
-                <div class="modal fade" id="Modal-delete" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-secondary" id="ModalLabel">Delete Movie</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
+                        <form method="POST" action="{% url 'movies' %}" class="">
+                            {% csrf_token %}
                             <div class="modal-body">
-                                <table class="table table-responsive">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Movie</th>
-                                        <th scope="col">Director</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for movie in movies %}
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th scope="row">{{ movie.name }}</th>
-                                            <td>{{ movie.director }}</td>
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
+                                <input type="text" class="form-control" required name="name" id="name"
+                                       placeholder="Movie name">
+                                <input type="url" class="form-control" required name="urlTrailer" id="urlTrailer"
+                                       placeholder="YouTube embedded trailer">
+                                <input type="text" class="form-control" required name="desc" id="desc"
+                                       placeholder="Description">
+                                <input type="date" class="form-control" required name="year" id="year"
+                                       placeholder="Release date">
+                                <input type="text" class="form-control" required name="director" id="director"
+                                       placeholder="Director">
+                                <input type="text" class="form-control" required name="cast" id="cast"
+                                       placeholder="Cast">
+                                <input type="url" class="form-control" required name="url" id="url"
+                                       placeholder="Image url">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger">Delete Movies</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--<div class="col-12 col-sm-2 col-lg-1">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal-delete">
+                Delete
+            </button>
+            <div class="modal fade" id="Modal-delete" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-secondary" id="ModalLabel">Delete Movie</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-responsive">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Movie</th>
+                                    <th scope="col">Director</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for movie in movies %}
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">{{ movie.name }}</th>
+                                        <td>{{ movie.director }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger">Delete Movies</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
     </div>
+    <!-- Modal -->
+
+</div>
 
 {% endblock %}
