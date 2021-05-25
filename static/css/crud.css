@@ -1,22 +1,27 @@
-.crud-movies .table {
+.table-responsive .table {
     color: #e2dada;
 }
-
-.crud-users .table {
-    color: #e2dada;
-}
-
 .form-control {
     margin-top: 10px;
 }
-
-a {
+a:hover, a {
     color: #E2DACD;
 }
-
-a:hover {
-    color: #E2DACD;
+.container-fluid {
+    color: #000000;
 }
+.table-responsive::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.table-responsive::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #7e7e7e;
+    border-radius: 20px;
+}
+
+
 
 
 

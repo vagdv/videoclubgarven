@@ -6,8 +6,8 @@
 {% endblock %}
 {% block content %}
     {% if movies %}
-<div class="crud-movies">
-    <table class="table table-responsive">
+<div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">Movie</th>
@@ -17,8 +17,8 @@
                 <th scope="col">Director</th>
                 <th scope="col">Actors</th>
                 <th scope="col">Image</th>
-                <th scope="col">Options</th>
-                <th scope="col"></th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,9 @@
                 <td>{{ movie.director }}</td>
                 <td>{{ movie.cast }}</td>
                 <td><a href="{{ movie.url }}">{{ movie.url }}</a></td>
-                <td><a href="{% url 'deleteMovie' movie.id %}" class="btn btn-danger" role="button">Delete</a></td>
+                <td>
+                    <a href="{% url 'deleteMovie' movie.id %}" class="btn btn-danger" role="button">Delete</a>
+                </td>
                 <td>
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalUpdate">
                         Update
@@ -39,10 +41,7 @@
 
                 </td>
             </tr>
-
-
             {% endfor %}
-
         </tbody>
     </table>
     <!-- Modal -->
@@ -91,9 +90,8 @@
     <div class="row">
         <div class="col-12 col-sm-2 col-lg-1">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-                Add
+                Add Movie
             </button>
-
             <!-- Modal -->
             <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -131,51 +129,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!--<div class="col-12 col-sm-2 col-lg-1">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal-delete">
-                Delete
-            </button>
-            <div class="modal fade" id="Modal-delete" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-secondary" id="ModalLabel">Delete Movie</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <table class="table table-responsive">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Movie</th>
-                                    <th scope="col">Director</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for movie in movies %}
-                                    <tr>
-                                        <th><input type="checkbox"></th>
-                                        <th scope="row">{{ movie.name }}</th>
-                                        <td>{{ movie.director }}</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger">Delete Movies</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
+        </div>      
     </div>
-    <!-- Modal -->
 
 </div>
+
 
 {% endblock %}
