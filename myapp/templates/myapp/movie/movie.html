@@ -30,10 +30,12 @@
                     {{ movie.cast }}...
                 </p>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#video">
                     Launch trailer
                 </button>
-                <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                <!-- Modal -->
+                <div class="modal" id="video" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" style="width: auto;">
                             <div class="modal-body">
@@ -48,6 +50,6 @@
         <p>We do not have this movie.</p>
         {% endif %}
         {% endblock %}
-    </div> 
+    </div>
 </body>
 
