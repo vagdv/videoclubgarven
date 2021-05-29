@@ -5,6 +5,10 @@
 
 {% endblock %}
 {% block content %}
+<head>
+    {% load static %}
+    <link href="{% static 'css/crud.css' %}" rel="stylesheet">
+</head>
     {% if movies %}
 <div class="table-responsive">
     <table class="table">
@@ -64,8 +68,9 @@
                                        placeholder="Movie name">
                                 <input type="url" class="form-control" required name="urlTrailer" id="urlTrailer"
                                        placeholder="YouTube embedded trailer">
-                                <input type="text" class="form-control" required name="desc" id="desc"
-                                       placeholder="Description">
+                                <textarea type="text" class="form-control" id="desc" placeholder="Description" rows="5"></textarea>
+                                <!--<input type="text" class="form-control" required name="desc" id="desc"
+           placeholder="Description">-->
                                 <input type="date" class="form-control" required name="year" id="year"
                                        placeholder="Release date">
                                 <input type="text" class="form-control" required name="director" id="director"

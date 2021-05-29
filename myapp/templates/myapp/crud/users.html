@@ -5,6 +5,11 @@
 
 {% endblock %}
 {% block content %}
+<head>
+    {% load static %}
+    <link href="{% static 'css/crud.css' %}" rel="stylesheet">
+
+</head>
     {% if users %}
 <div class="table-responsive">
     <table class="table">

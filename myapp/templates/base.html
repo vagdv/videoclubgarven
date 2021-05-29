@@ -12,70 +12,67 @@
 
     {% load static %}
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <link href="{% static 'css/movies.css' %}" rel="stylesheet">
     <link href="{% static 'css/cabecera.css' %}" rel="stylesheet">
+    <!--<link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/movies.css' %}" rel="stylesheet">
     <link href="{% static 'css/movie.css' %}" rel="stylesheet">
-    <link href="{% static 'css/crud.css' %}" rel="stylesheet">
+    <link href="{% static 'css/crud.css' %}" rel="stylesheet">-->
 
 
 </head>
 
 <body>
     <div class="container-fluid bg-dark">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="col-12 col-sm col-md">
-                <a class="" href="{% url 'index' %}">
-                    <img src="/static/img/logo.png" class="avatar" alt="Avatar Image">
-                </a>
-            </div>
-            <div class="dropdown col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
-                <a class="nav-link" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                    <i class="fas fa-search text-secondary"></i>
-                </a>
-
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li>
-                        <form method="GET" action="{% url 'index' %}">
-                            <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search"
-                                   aria-label="Search"
-                                   aria-describedby="search-addon" />
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            {% if request.user.is_superuser %}
-            <div class="dropdown col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
-                <a class="nav-link" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                    <i class="text-secondary">Admin</i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li>
-                        <a class="nav-link active" href="{% url 'movies' %}">
-                            <i class="text-secondary">Manage movies</i>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+            <div class="bg-dark text-white col-12">
+                <nav class="navbar navbar-dark col-12 ">
+                    <div class="col-12 col-sm">
+                        <a class="" href="{% url 'index' %}">
+                            <img src="/static/img/logo.png" class="avatar" alt="Avatar Image">
                         </a>
-                    </li>
-                    <li>
-                        <a class="nav-link active" href="{% url 'users' %}">
-                            <i class="text-secondary">Manage users</i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                    <div class="nav text-white">
+                        <div class="dropdown col-12 col-sm-3 col-md-4 col-lg-3">
+                            <a class="btn btn-cabecera" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search text-secondary"></i>
+                            </a>
+                            <div class="dropdown-menu buscar" aria-labelledby="dropdownMenuButton">
+                                <form method="GET" action="{% url 'index' %}">
+                                    <input type="search" class="form-control rounded" id="name" name="name" placeholder="Search"
+                                           aria-label="Search"
+                                           aria-describedby="search-addon" />
+                                </form>
+                            </div>
+                        </div>
+                        {% if request.user.is_superuser %}
+                        <div class="dropdown admin col-12 col-sm-4 col-md-4 col-lg-4">
+                            <a class="btn btn-cabecera" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="text-secondary">Admin</i>
+                            </a>
+                            <div class="dropdown-menu admin" aria-labelledby="dropdownMenuButton">
+                                <a class="nav-link active" href="{% url 'movies' %}">
+                                    <i class="text-secondary">Manage movies</i>
+                                </a>
+                                <a class="nav-link active" href="{% url 'users' %}">
+                                    <i class="text-secondary">Manage users</i>
+                                </a>
 
-            {% else %}
-            <div class="user col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-                <a class="nav-link active" href="">
-                    <i class="text-secondary">Hi, {{ request.user }}</i>
-                </a>
-            </div>
-            {% endif %}
-            <div class="logout col-12 col-sm-1 col-md-1 col-lg-1 col-md-1">
-                <a class="nav-link active" href="{% url 'logout' %}">
-                    <i class="text-secondary">Logout</i>
-                </a>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="user col-12 col-sm-5">
+                            <a class="nav-link active" href="">
+                                <i class="text-secondary">Hi, {{ request.user }}</i>
+                            </a>
+                        </div>
+                        {% endif %}
+                        <div class="logout col-12 col-sm-4 col-md-1 col-lg-1 col-xl-1">
+                            <a class="nav-link active" href="{% url 'logout' %}">
+                                <i class="text-secondary">Logout</i>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </nav>
     </div>
@@ -95,7 +92,7 @@
             integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
             crossorigin="anonymous"></script>
     <script src="{% static 'js/model.js' %}"></script>
-  
+
 
 </body>
 </html>

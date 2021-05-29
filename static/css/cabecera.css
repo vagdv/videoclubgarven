@@ -10,14 +10,25 @@ body {
 }
 
 .container-fluid .search, .user, .logout, .dropdown {
-    margin-top: 30px;
+    margin-top: 20px;
+}
+.btn-cabecera {
+    margin-top: 2px;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 .container-fluid .dropdown .form-control {
-    margin: 10px;
-    width:200px;
+    margin: 12px;
+    width:180px;
 }
-
+.dropdown-menu {
+    background-color: #212529;    
+}
+.admin{
+    margin-right:8px;
+}
 @media only screen and (max-width: 576px) {
     .container-fluid .col-12 {
         display: flex;
@@ -32,8 +43,7 @@ body {
     }
     .container-fluid .dropdown .dropdown-menu {      
         margin-left: 35%;
-    }
-  
+    }  
 }
 
 

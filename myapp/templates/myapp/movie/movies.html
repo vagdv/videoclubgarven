@@ -5,6 +5,10 @@
 
 {% endblock %}
 {% block content %}
+<head>
+    {% load static %}
+    <link href="{% static 'css/movies.css' %}" rel="stylesheet">
+</head>
     {% if movies %}
 
 <div class="container">

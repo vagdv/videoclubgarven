@@ -3,7 +3,10 @@
     {{ movie.name }}
 {% endblock %}
 {% block content %}
-
+<head>
+    {% load static %}
+    <link href="{% static 'css/movie.css' %}" rel="stylesheet">
+</head>
     {% if movie %}
 <body>
     <div class="container bg-white">

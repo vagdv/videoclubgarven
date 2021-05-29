@@ -4,11 +4,14 @@
 .form-control {
     margin-top: 10px;
 }
+.modal-body{
+    color: #000000;
+}
 a:hover, a {
     color: #E2DACD;
 }
 .container-fluid {
-    color: #000000;
+    color: #ff0000;
 }
 .table-responsive::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -20,7 +23,14 @@ a:hover, a {
     background-color: #7e7e7e;
     border-radius: 20px;
 }
-
+.row {
+    justify-content: center;
+    margin-top: 2%;
+}
+a:link {
+    color: #e2dada;
+    text-decoration: none;
+}
 
 
 
