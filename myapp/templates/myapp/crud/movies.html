@@ -68,32 +68,31 @@
                                        placeholder="Movie name">
                                 <input type="url" class="form-control" required name="urlTrailer" id="urlTrailer"
                                        placeholder="YouTube embedded trailer">
-                                <textarea type="text" class="form-control" id="desc" placeholder="Description" rows="5"></textarea>
-                                <!--<input type="text" class="form-control" required name="desc" id="desc"
-           placeholder="Description">-->
+                                <textarea type="text" class="form-control" required name="desc" id="desc"
+                                          placeholder="Description" rows="5"></textarea>
                                 <input type="date" class="form-control" required name="year" id="year"
                                        placeholder="Release date">
                                 <input type="text" class="form-control" required name="director" id="director"
                                        placeholder="Director">
-                                <input type="text" class="form-control" required name="cast" id="cast"
-                                       placeholder="Cast">
+                                <textarea type="text" class="form-control" required name="cast" id="cast"
+                                       placeholder="Cast" rows="5"></textarea>                             
                                 <input type="url" class="form-control" required name="url" id="url"
                                        placeholder="Image url">
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Close
-                                </button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>      
+        </div>
+
     </div>
 
-</div>
 
-
-{% endblock %}
+    {% endblock %}

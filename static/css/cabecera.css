@@ -12,6 +12,7 @@ body {
 .container-fluid .search, .user, .logout, .dropdown {
     margin-top: 20px;
 }
+
 .btn-cabecera {
     margin-top: 2px;
     border: none;
@@ -21,29 +22,32 @@ body {
 
 .container-fluid .dropdown .form-control {
     margin: 12px;
-    width:180px;
+    width: 180px;
 }
+
 .dropdown-menu {
-    background-color: #212529;    
+    background-color: #212529;
 }
-.admin{
-    margin-right:8px;
+
+.admin {
+    margin-right: 8px;
 }
+
 @media only screen and (max-width: 576px) {
     .container-fluid .col-12 {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .container-fluid .search {      
+
+    .container-fluid .search {
         margin: 0 auto;
         margin-top: 8%;
         display: flex;
         flex-direction: column;
     }
-    .container-fluid .dropdown .dropdown-menu {      
+
+    .container-fluid .dropdown .dropdown-menu {
         margin-left: 35%;
-    }  
+    }
 }
-
-

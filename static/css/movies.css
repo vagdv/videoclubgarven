@@ -3,9 +3,10 @@
     justify-content: center;
 }
 
-.nombre, p{ 
-    color: #e2dada; 
+.nombre, p {
+    color: #e2dada;
 }
+
 a:link {
     color: #e2dada;
     text-decoration: none;
@@ -20,9 +21,9 @@ a:link {
     color: #ffffff;
     background: none;
 }
+
 .page-link {
     color: #ffffff;
     background: none;
     border: none;
 }
-
